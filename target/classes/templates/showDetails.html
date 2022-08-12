@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Registration Success</title>
+    <style type="text/css">
+    span {
+        display: inline-block;
+        width: 200px;
+        text-align: left;
+    }
+</style>
+</head>
+<body>
+<div th:if="${ not#lists.isEmpty(tvShowDetails)}">
+    <table>
+        <tr>
+            <th>Show Name:</th>
+            <th>Show Description:</th>
+            <th>Show Day:</th>
+            <th>Show Data:</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <tr th:each="tvShow : ${tvShowDetails}">
+            <td th:text="${tvShow.showName}"></td>
+            <td th:text="${tvShow.showDescription}"></td>
+            <td th:text="${tvShow.showDay}"></td>
+            <td th:text="${tvShow.showTime}"></td>
+            <td>
+                <form th:action="@{/showDelete}" th:object="${tvShow}" method="post">
+                    <input type="hidden" name="showName" th:value="${tvShow.showName}">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+            <td>
+                <form th:action="@{/showUpdate}" th:object="${tvShow}" method="post">
+                    <input type="hidden" name="showName" th:value="${tvShow.showName}">
+                    <button type="submit">Update</button>
+                </form>
+            </td>
+
+        </tr>
+        </table>
+</div>
+</body>
+</html>

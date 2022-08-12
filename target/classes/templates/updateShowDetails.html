@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>TV Show Registration</title>
+</head>
+<body>
+<div align="center">
+    <h1>TV Show Registration</h1>
+    <form action="#" th:action="@{/updateMovie}" method="post" th:object="${tvShow}">
+        <label>Show Name:</label>
+        <input type="text" th:field="*{showName}" /><br/>
+
+        <label>Show Description:</label>
+        <input type="text" th:field="*{showDescription}" /><br/>
+
+        <label>Show Day:</label>
+        <input type="text" th:field="*{showDay}" /><br/>
+
+        <label>Show Time:</label>
+        <input type="text" th:field="*{showTime}" /><br/>
+
+        <button type="submit">Update</button>
+    </form>
+</div>
+</body>
+</html>
